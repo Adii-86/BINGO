@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  width: 600px;
+  width: 500px;
 }
 
 .game-container {
@@ -39,4 +39,16 @@ body {
   align-items: center;
   font-size: 40px;
   box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.x-mark {
+  position: absolute;
+  width: 50px;
+  display: none;
+}
+
+.visible {
+  display: initial;
 }
