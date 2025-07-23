@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BINGO | Game</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        width: 600px;
+      }
+
+      .game-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        border: 3px solid black;
+      }
+
+      .header {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .header-cell {
+        display: flex;
+        justify-content: center;
+        align-items: last baseline;
+        font-size: 50px;
+        font-weight: bold;
+      }
+
+      .cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1/1;
+        outline: 1px solid #ccc;
+        align-items: center;
+        font-size: 40px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header js-header">
+        <div class="header-cell"></div>
+      </div>
+      <div class="game-container js-game-container">
+        <div class="cell"></div>
+      </div>
+    </div>
+    <script src="/scripts/game.js"></script>
+  </body>
+</html>
