@@ -1,4 +1,4 @@
-export function renderBeforeStartPage() {
+export function renderPageBeforeStart() {
   let headerHTML = "";
   const header = document.querySelector(".js-header");
   const headerElems = ["B", "I", "N", "G", "O"];
