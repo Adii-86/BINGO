@@ -38,9 +38,19 @@ body {
   outline: 1px solid #ccc;
   align-items: center;
   font-size: 40px;
+  color: rgb(50, 90, 175);
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.cell:hover {
+  background-color: #e6e6e6;
+}
+
+.cell:active {
+  background-color: #ccc;
 }
 
 .x-mark {
@@ -51,4 +61,8 @@ body {
 
 .visible {
   display: initial;
+}
+
+.clicked {
+  color: rgb(149, 151, 152);
 }

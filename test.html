@@ -1,0 +1,30 @@
+<input type="text" id="numberInput" placeholder="Enter a number 1-25" />
+<p id="error-msg" style="color: red"></p>
+
+<script>
+  const input = document.getElementById("numberInput");
+  const errorMsg = document.getElementById("error-msg");
+
+  input.addEventListener("input", () => {
+    const value = input.value.trim();
+
+    // Remove non-digit characters
+    if (/\D/.test(value)) {
+      errorMsg.textContent = "Only digits allowed.";
+      input.value = value.replace(/\D/g, ""); // clean input
+      return;
+    }
+
+    const number = Number(value);
+
+    if (value === "") {
+      errorMsg.textContent = "";
+    } else if (!Number.isInteger(number)) {
+      errorMsg.textContent = "Must be a valid integer.";
+    } else if (number < 1 || number > 25) {
+      errorMsg.textContent = "Value must be between 1 and 25.";
+    } else {
+      errorMsg.textContent = "";
+    }
+  });
+</script>

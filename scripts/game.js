@@ -22,5 +22,6 @@ gameContainer.innerHTML = gameContainerHTML;
 document.querySelectorAll(".cell").forEach((cell) => {
   cell.addEventListener("click", () => {
     cell.querySelector(".x-mark").classList.add("visible");
+    cell.classList.add("clicked");
   });
 });
