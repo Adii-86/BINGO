@@ -57,6 +57,7 @@ body {
   position: absolute;
   width: 50px;
   display: none;
+  user-select: none;
 }
 
 .visible {

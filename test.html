@@ -1,30 +1,38 @@
-<input type="text" id="numberInput" placeholder="Enter a number 1-25" />
-<p id="error-msg" style="color: red"></p>
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    width: 300px;
+    margin: 20px auto;
+    overflow: visible; /* important! */
+    padding: 5px;
+  }
 
-<script>
-  const input = document.getElementById("numberInput");
-  const errorMsg = document.getElementById("error-msg");
+  .input-cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(50, 90, 175);
+    caret-color: transparent;
+    outline: 1px solid #ccc;
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.2s ease;
+    box-sizing: border-box;
+  }
 
-  input.addEventListener("input", () => {
-    const value = input.value.trim();
+  .input-cell:focus {
+    outline: none;
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.4), 0 0 8px 2px #00bfff;
+  }
+</style>
 
-    // Remove non-digit characters
-    if (/\D/.test(value)) {
-      errorMsg.textContent = "Only digits allowed.";
-      input.value = value.replace(/\D/g, ""); // clean input
-      return;
-    }
-
-    const number = Number(value);
-
-    if (value === "") {
-      errorMsg.textContent = "";
-    } else if (!Number.isInteger(number)) {
-      errorMsg.textContent = "Must be a valid integer.";
-    } else if (number < 1 || number > 25) {
-      errorMsg.textContent = "Value must be between 1 and 25.";
-    } else {
-      errorMsg.textContent = "";
-    }
-  });
-</script>
+<div class="grid">
+  <input class="input-cell" />
+  <input class="input-cell" />
+  <input class="input-cell" />
+  <input class="input-cell" />
+  <input class="input-cell" />
+  <!-- repeat 5x5 or 9x9 -->
+</div>
