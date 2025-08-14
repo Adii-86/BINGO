@@ -41,3 +41,9 @@
 #start-button:active {
   opacity: 0.7;
 }
+
+.container p {
+  display: flex;
+  align-items: center;
+  color: #f21818;
+}

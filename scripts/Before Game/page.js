@@ -10,10 +10,21 @@ export function renderPageBeforeStart() {
 
   let gameContainerHTML = "";
   const gameContainer = document.querySelector(".js-game-container");
-  for (let i = 0; i < 25; i++) {
-    gameContainerHTML += `
-      <input class="input-cell" maxlength="2">`;
+
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+      gameContainerHTML += `
+      <input class="input-cell" maxlength="2" data-row="${i}" data-col="${j}">`;
+    }
   }
 
   gameContainer.innerHTML = gameContainerHTML;
+}
+
+function fillBoard() {
+  document.querySelectorAll(".input-cell").forEach((cell) => {
+    cell.addEventListener("input", () => {
+      console.log(cell.value);
+    });
+  });
 }
