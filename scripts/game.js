@@ -11,7 +11,7 @@
 // import { used, gameBoard } from "../data/gameData.js";
 // import { postGameData } from "../data/postGameData.js";
 import { renderError, validateInput } from "./Before Game/inputValidation.js";
-import { updateGameData } from "../data/postGameData.js";
+import { postGameData, updateGameData } from "../data/postGameData.js";
 
 let headerHTML = "";
 const header = document.querySelector(".js-header");
@@ -50,6 +50,10 @@ document.querySelectorAll(".input-cell").forEach((cell) => {
       renderError(cell, row, col, errorElem);
       const inputVal = Number(rawVal);
       updateGameData(inputVal, row, col);
+    }
+
+    if (postGameData.filled === 25) {
+      document.querySelector("#start-button").disabled = false;
     }
   });
 });

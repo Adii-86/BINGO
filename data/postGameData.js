@@ -24,4 +24,5 @@ export function updateGameData(val, i, j) {
   postGameData.gameBoard[i][j] = val;
   let filled = updateUsedVals();
   postGameData.filled = filled;
+  console.log(postGameData.filled);
 }
