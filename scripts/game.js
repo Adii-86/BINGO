@@ -65,3 +65,39 @@ document.querySelectorAll(".input-cell").forEach((cell) => {
     renderError(cell, r, c, errorElem);
   });
 });
+
+// Implementing Navigation using arrow keys
+const parent = document.querySelector(".js-game-container");
+const ips = Array.from(parent.children);
+const inputs = new Array(5).fill(0).map(() => new Array(5).fill(0));
+let idx = 0;
+for (let i = 0; i < 5; i++) {
+  for (let j = 0; j < 5; j++) {
+    inputs[i][j] = ips[idx];
+    idx++;
+  }
+}
+
+console.log(inputs);
+parent.addEventListener("keydown", (key) => {
+  let r = Number(document.activeElement.dataset.row),
+    c = Number(document.activeElement.dataset.col);
+  switch (key.key) {
+    case "ArrowUp":
+      r = Math.max(0, r - 1);
+      break;
+    case "ArrowRight":
+      c = Math.min(4, c + 1);
+      break;
+    case "ArrowDown":
+      r = Math.min(4, r + 1);
+      break;
+    case "ArrowLeft":
+      c = Math.max(0, c - 1);
+      break;
+    default:
+      return;
+  }
+  key.preventDefault();
+  inputs[r][c].focus();
+});
