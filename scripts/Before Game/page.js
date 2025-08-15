@@ -1,4 +1,4 @@
-export function renderBeforeStartPage() {
+export function renderPageBeforeStart() {
   let headerHTML = "";
   const header = document.querySelector(".js-header");
   const headerElems = ["B", "I", "N", "G", "O"];
@@ -10,9 +10,12 @@ export function renderBeforeStartPage() {
 
   let gameContainerHTML = "";
   const gameContainer = document.querySelector(".js-game-container");
-  for (let i = 0; i < 25; i++) {
-    gameContainerHTML += `
-      <input class="input-cell" maxlength="2">`;
+
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+      gameContainerHTML += `
+      <input class="input-cell" maxlength="2" data-row="${i}" data-col="${j}">`;
+    }
   }
 
   gameContainer.innerHTML = gameContainerHTML;

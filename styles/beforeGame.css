@@ -21,12 +21,18 @@
   justify-content: center;
 }
 
+.error-cell {
+  background-color: #f1d0d6;
+  color: #d5656e;
+}
+
 #start-button {
   padding: 15px 20px;
   border-radius: 50px;
   border: none;
   background-color: white;
   border: 2px solid black;
+  color: black;
   font-size: 20px;
   cursor: pointer;
   font-weight: bold;
@@ -40,4 +46,14 @@
 
 #start-button:active {
   opacity: 0.7;
+}
+
+#start-button:disabled {
+  cursor: not-allowed;
+}
+
+.container p {
+  display: flex;
+  align-items: center;
+  color: #f21818;
 }
