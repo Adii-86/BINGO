@@ -1,3 +1,5 @@
+import { postGameData, saveToLocalStg } from "./postGameData.js";
+
 export const preGameData = new Object();
 
 preGameData.gameBoard = new Array(5).fill(0).map(() => new Array(5).fill(0));
@@ -27,6 +29,11 @@ export function updateGameData(val, i, j) {
   console.log(preGameData.filled);
 }
 
-// export function transferData() {
+export function transferData() {
+  postGameData.gameBoard = preGameData.gameBoard;
+  saveToLocalStg();
+}
 
-// }
+export function startTheGame() {
+  localStorage.setItem("isStarted", "true");
+}
