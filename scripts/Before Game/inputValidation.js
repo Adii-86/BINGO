@@ -1,7 +1,7 @@
-import { postGameData, updateGameData } from "../../data/postGameData.js";
+import { preGameData, updateGameData } from "../../data/preGameData.js";
 
 export function renderError(cell, i, j, errorElem) {
-  const msg = postGameData.errorBoard[i][j];
+  const msg = preGameData.errorBoard[i][j];
   if (msg === "") {
     cell.classList.remove("error-cell");
   } else {
@@ -14,7 +14,7 @@ export function validateInput(rawVal, i, j) {
   let hasError = false;
   let errorMsg = "";
   if (rawVal === "") {
-    postGameData.errorBoard[i][j] = errorMsg;
+    preGameData.errorBoard[i][j] = errorMsg;
     return hasError;
   }
 
@@ -29,7 +29,7 @@ export function validateInput(rawVal, i, j) {
   } else if (inputVal < 1) {
     hasError = true;
     errorMsg = `<span class="material-symbols-outlined">error</span>Entered value must be greater than or equal to 1.`;
-  } else if (postGameData.usedVals[inputVal]) {
+  } else if (preGameData.usedVals[inputVal]) {
     hasError = true;
     errorMsg = `<span class="material-symbols-outlined">error</span>All entries in the cell must be unique.`;
   }
@@ -37,6 +37,6 @@ export function validateInput(rawVal, i, j) {
   if (hasError) {
     updateGameData(0, i, j);
   }
-  postGameData.errorBoard[i][j] = errorMsg;
+  preGameData.errorBoard[i][j] = errorMsg;
   return hasError;
 }

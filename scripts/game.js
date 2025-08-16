@@ -1,18 +1,7 @@
-// import { isStarted } from "../data/gameData.js";
-// import { renderPage } from "./afterStart.js";
-// import { renderPageBeforeStart } from "./Before Game/page.js";
-
-// if (isStarted) {
-//   renderPage();
-// } else {
-//   renderPageBeforeStart();
-// }
-
-// import { used, gameBoard } from "../data/gameData.js";
-// import { postGameData } from "../data/postGameData.js";
 import { renderError, validateInput } from "./Before Game/inputValidation.js";
-import { postGameData, updateGameData } from "../data/postGameData.js";
+import { preGameData, updateGameData } from "../data/preGameData.js";
 
+// HTML Generating before game
 let headerHTML = "";
 const header = document.querySelector(".js-header");
 const headerElems = ["B", "I", "N", "G", "O"];
@@ -52,7 +41,7 @@ document.querySelectorAll(".input-cell").forEach((cell) => {
       updateGameData(inputVal, row, col);
     }
 
-    if (postGameData.filled === 25) {
+    if (preGameData.filled === 25) {
       document.querySelector("#start-button").disabled = false;
     }
   });
