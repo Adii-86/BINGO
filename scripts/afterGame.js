@@ -44,6 +44,12 @@ function generateHTML() {
   }
 
   gameContainer.innerHTML = gameContainerHTML;
+  document.querySelector(".js-container").innerHTML += `
+    <p style="color:black;">In case your friend won the match just click the restart button</p>
+    <div class="button-container">
+      <button id="restart-button">Restart</button>
+    </div>
+  `;
 }
 
 function eventListners() {
@@ -62,6 +68,11 @@ function eventListners() {
       }
     });
   });
+
+  document.querySelector("#restart-button").addEventListener("click", () => {
+    localStorage.clear();
+    location.reload();
+  });
 }
 
 function endedGame() {
@@ -72,6 +83,7 @@ function showGameEndPopUp() {
   const popupHTML = `
     <div class="popup-overlay">
       <div class="popup">
+        <h1 class="popup-title">Game Over</h1>
         <h2>You Win!</h2>
         <button class="restart-btn js-restart-btn">Restart Game</button>
       </div>
@@ -79,7 +91,6 @@ function showGameEndPopUp() {
   `;
 
   document.body.innerHTML += popupHTML;
-
   document.querySelector(".js-restart-btn").addEventListener("click", () => {
     localStorage.clear(); // clear prev data for the new game
     location.reload();
