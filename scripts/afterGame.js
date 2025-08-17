@@ -1,8 +1,11 @@
 import { postGameData } from "../data/postGameData.js";
 
 export function renderAfterStart() {
-  const startBtn = document.querySelector(".button-container");
-  startBtn.remove();
+  const container = document.querySelector(".js-container");
+  container.innerHTML = `      
+    <div class="header js-header"></div>
+    <div class="game-container js-game-container"></div>
+  `;
 
   let headerHTML = "";
   const header = document.querySelector(".js-header");

@@ -30,6 +30,13 @@ export function renderBeforeStart() {
 
   gameContainer.innerHTML = gameContainerHTML;
 
+  document.querySelector(".js-container").innerHTML += `      
+    <p class="error-msg"></p>
+    <div class="button-container">
+      <button id="start-button" disabled>Start The Game</button>
+    </div>
+  `;
+
   // Error handling
   const errorElem = document.querySelector(".error-msg"); // Error Element
   document.querySelectorAll(".input-cell").forEach((cell) => {
